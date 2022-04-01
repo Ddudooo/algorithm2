@@ -7,12 +7,13 @@ import java.util.Scanner;
 public class Application {
 
 	public static void main(String[] args) {
+		Application app = new Application();
 		Scanner in = new Scanner(System.in);
-		String input = in.next();
-		System.out.println(solution(input));
+		String input = in.nextLine();
+		System.out.println(app.solution(input));
 	}
 
-	public static String solution(String input) {
+	public String solution(String input) {
 		return Arrays.stream(input.split("\\s+"))
 			.max(Comparator.comparingInt(String::length))
 			.orElseGet(String::new);

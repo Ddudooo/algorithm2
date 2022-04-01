@@ -13,7 +13,10 @@ class ApplicationTest {
 	@ParameterizedTest
 	@MethodSource("problem01_03_params")
 	void parameterizeTest(String input, String expect) {
-		String answer = Application.solution(input);
+		Application app = new Application();
+
+		String answer = app.solution(input);
+		System.out.printf("input %s, expect %s, answer %s\n", input, expect, answer);
 
 		assertEquals(expect, answer);
 	}
