@@ -1,6 +1,7 @@
 package study.problem01_03;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.params.provider.Arguments.of;
 
 import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -19,7 +20,11 @@ class ApplicationTest {
 
 	private static Stream<Arguments> problem01_03_params() {
 		return Stream.of(
-			Arguments.of("it is time to study", "study")
+			of("it is time to study", "study"),
+			of("dkjg LKKL KJkjglkd Kjgkd LKKJLJLJLKJLLLLLLL", "LKKJLJLJLKJLLLLLLL"),
+			of("eitoiw iruow witouweiotwiowioei eiiuow e", "witouweiotwiowioei"),
+			of("jddgshsgskjkdj dijglolkdwoig dkjkljglkd gksjlkjgls gkjldkjgla", "jddgshsgskjkdj"),
+			of("loveispower", "loveispower")
 		);
 	}
 }

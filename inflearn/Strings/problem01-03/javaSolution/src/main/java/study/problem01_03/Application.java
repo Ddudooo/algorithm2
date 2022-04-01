@@ -1,18 +1,20 @@
 package study.problem01_03;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Application {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		int input1 = in.nextInt();
-		int input2 = in.nextInt();
-		System.out.println(input1 + input2);
-		return;
+		String input = in.next();
+		System.out.println(solution(input));
 	}
 
 	public static String solution(String input) {
-		return input;
+		return Arrays.stream(input.split("\\s+"))
+			.max(Comparator.comparingInt(String::length))
+			.orElseGet(String::new);
 	}
 }
