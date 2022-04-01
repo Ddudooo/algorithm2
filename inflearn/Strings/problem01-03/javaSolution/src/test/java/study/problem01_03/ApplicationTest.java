@@ -16,7 +16,6 @@ class ApplicationTest {
 		Application app = new Application();
 
 		String answer = app.solution(input);
-		System.out.printf("input %s, expect %s, answer %s\n", input, expect, answer);
 
 		assertEquals(expect, answer);
 	}
