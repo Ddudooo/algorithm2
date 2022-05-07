@@ -12,7 +12,7 @@ LRU 알고리즘은 Least Recently Used 의 약자로 직역하자면 가장 최
 
 캐시에서 작업을 제거할 때 가장 오랫동안 사용하지 않은 것을 제거하겠다는 알고리즘입니다.
 
-![Image1.jpg](/public/upload/c366c701c2.jpg)
+![image](https://user-images.githubusercontent.com/47135476/167243349-3a82dd39-c6da-4c81-9278-c284155757a3.png)
 
 캐시의 크기가 주어지고, 캐시가 비어있는 상태에서 N개의 작업을 CPU가 차례로 처리한다면 N개의 작업을 처리한 후
 
@@ -39,4 +39,4 @@ LRU 알고리즘은 Least Recently Used 의 약자로 직역하자면 가장 최
 
 힌트
 
-![Image1.jpg](/public/upload/3fe5828362.jpg)
+![image](https://user-images.githubusercontent.com/47135476/167243363-88595618-38d1-4723-904e-d88c905e7e68.png)
