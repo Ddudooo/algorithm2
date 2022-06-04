@@ -1,0 +1,250 @@
+package study.inflearn.greedy.problem09_06;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.params.provider.Arguments.of;
+
+import java.util.Arrays;
+import java.util.stream.Stream;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+class ApplicationTest {
+
+	@ParameterizedTest
+	@MethodSource("problem09_06_params")
+	void solutionTest(String inputStr, String expectStr) {
+		Application app = new Application();
+		String[] splitStr = inputStr.trim().split("\n");
+		int[] conditions = Arrays.stream(splitStr[0].trim().split(" ")).mapToInt(Integer::parseInt)
+			.toArray();
+		int n = conditions[0];
+		int m = conditions[1];
+		Pair[] pairs = new Pair[m];
+		int i = 0;
+		for (; i < m; i++) {
+			int[] inputs = Arrays.stream(splitStr[i + 1].trim().split(" "))
+				.mapToInt(Integer::parseInt)
+				.toArray();
+			pairs[i] = new Pair(inputs[0], inputs[1]);
+		}
+		int[] inputs = Arrays.stream(splitStr[i + 1].trim().split(" ")).mapToInt(Integer::parseInt)
+			.toArray();
+		Pair questions = new Pair(inputs[0], inputs[1]);
+		boolean answer = app.solution(questions, pairs);
+
+		String answerStr = answer ? "YES" : "NO";
+
+		assertEquals(expectStr, answerStr);
+	}
+
+	private static Stream<Arguments> problem09_06_params() {
+		return Stream.of(
+			of("20 22\n"
+				+ "18 9\n"
+				+ "4 15\n"
+				+ "12 16\n"
+				+ "9 10\n"
+				+ "10 7\n"
+				+ "14 9\n"
+				+ "13 3\n"
+				+ "17 5\n"
+				+ "6 1\n"
+				+ "1 14\n"
+				+ "12 4\n"
+				+ "9 11\n"
+				+ "7 5\n"
+				+ "17 4\n"
+				+ "6 17\n"
+				+ "12 9\n"
+				+ "18 10\n"
+				+ "17 8\n"
+				+ "11 18\n"
+				+ "7 19\n"
+				+ "4 3\n"
+				+ "3 4\n"
+				+ "10 15", "YES"),
+			of("100 25\n"
+				+ "81 89\n"
+				+ "58 54\n"
+				+ "64 1\n"
+				+ "63 39\n"
+				+ "61 78\n"
+				+ "39 8\n"
+				+ "43 93\n"
+				+ "67 15\n"
+				+ "48 50\n"
+				+ "12 20\n"
+				+ "41 17\n"
+				+ "58 97\n"
+				+ "45 40\n"
+				+ "20 13\n"
+				+ "32 45\n"
+				+ "47 64\n"
+				+ "51 53\n"
+				+ "28 41\n"
+				+ "59 39\n"
+				+ "87 47\n"
+				+ "83 45\n"
+				+ "94 87\n"
+				+ "15 87\n"
+				+ "23 58\n"
+				+ "85 50\n"
+				+ "1 15\n", "YES"),
+			of("500 50\n"
+				+ "301 178\n"
+				+ "180 350\n"
+				+ "281 133\n"
+				+ "483 464\n"
+				+ "428 224\n"
+				+ "18 234\n"
+				+ "475 260\n"
+				+ "441 274\n"
+				+ "348 446\n"
+				+ "3 31\n"
+				+ "66 179\n"
+				+ "42 254\n"
+				+ "50 338\n"
+				+ "207 78\n"
+				+ "404 245\n"
+				+ "415 189\n"
+				+ "82 397\n"
+				+ "487 260\n"
+				+ "315 432\n"
+				+ "187 397\n"
+				+ "147 103\n"
+				+ "349 407\n"
+				+ "98 173\n"
+				+ "242 85\n"
+				+ "138 261\n"
+				+ "273 419\n"
+				+ "65 59\n"
+				+ "51 269\n"
+				+ "7 282\n"
+				+ "75 53\n"
+				+ "115 136\n"
+				+ "87 243\n"
+				+ "308 271\n"
+				+ "223 279\n"
+				+ "247 258\n"
+				+ "184 195\n"
+				+ "400 339\n"
+				+ "15 254\n"
+				+ "121 116\n"
+				+ "75 100\n"
+				+ "149 187\n"
+				+ "469 103\n"
+				+ "260 46\n"
+				+ "406 365\n"
+				+ "250 3\n"
+				+ "78 319\n"
+				+ "243 184\n"
+				+ "271 309\n"
+				+ "498 270\n"
+				+ "396 467\n"
+				+ "89 196", "NO"),
+			of("700 100\n"
+				+ "317 16\n"
+				+ "642 453\n"
+				+ "673 396\n"
+				+ "504 662\n"
+				+ "322 183\n"
+				+ "105 636\n"
+				+ "10 32\n"
+				+ "403 94\n"
+				+ "392 528\n"
+				+ "665 555\n"
+				+ "621 186\n"
+				+ "114 285\n"
+				+ "283 281\n"
+				+ "587 97\n"
+				+ "261 594\n"
+				+ "458 539\n"
+				+ "575 350\n"
+				+ "24 195\n"
+				+ "113 150\n"
+				+ "357 133\n"
+				+ "226 320\n"
+				+ "167 107\n"
+				+ "187 372\n"
+				+ "116 57\n"
+				+ "499 408\n"
+				+ "488 550\n"
+				+ "574 504\n"
+				+ "470 164\n"
+				+ "41 58\n"
+				+ "565 376\n"
+				+ "624 201\n"
+				+ "267 665\n"
+				+ "434 115\n"
+				+ "317 336\n"
+				+ "692 297\n"
+				+ "565 599\n"
+				+ "236 646\n"
+				+ "344 201\n"
+				+ "448 110\n"
+				+ "182 41\n"
+				+ "328 504\n"
+				+ "692 567\n"
+				+ "284 370\n"
+				+ "413 327\n"
+				+ "366 448\n"
+				+ "684 291\n"
+				+ "470 184\n"
+				+ "64 140\n"
+				+ "163 56\n"
+				+ "611 287\n"
+				+ "557 452\n"
+				+ "581 128\n"
+				+ "567 542\n"
+				+ "57 695\n"
+				+ "598 327\n"
+				+ "258 38\n"
+				+ "527 460\n"
+				+ "79 497\n"
+				+ "438 20\n"
+				+ "690 76\n"
+				+ "603 412\n"
+				+ "618 474\n"
+				+ "194 424\n"
+				+ "691 638\n"
+				+ "393 512\n"
+				+ "380 551\n"
+				+ "432 203\n"
+				+ "387 527\n"
+				+ "88 515\n"
+				+ "639 449\n"
+				+ "481 409\n"
+				+ "530 543\n"
+				+ "403 610\n"
+				+ "364 585\n"
+				+ "662 403\n"
+				+ "523 488\n"
+				+ "420 472\n"
+				+ "293 245\n"
+				+ "225 119\n"
+				+ "151 185\n"
+				+ "509 283\n"
+				+ "83 281\n"
+				+ "647 23\n"
+				+ "500 174\n"
+				+ "666 669\n"
+				+ "168 643\n"
+				+ "548 62\n"
+				+ "187 154\n"
+				+ "288 320\n"
+				+ "579 595\n"
+				+ "320 642\n"
+				+ "323 606\n"
+				+ "508 314\n"
+				+ "447 412\n"
+				+ "338 576\n"
+				+ "612 429\n"
+				+ "654 698\n"
+				+ "124 685\n"
+				+ "604 659\n"
+				+ "437 179\n"
+				+ "555 267", "YES")
+		);
+	}
+}
