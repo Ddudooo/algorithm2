@@ -26,7 +26,7 @@ jobs:
             echo "Detected gradlew"
             echo "::set-output name=dir::${{ matrix.dir }}"
           fi
-  run_test:
+  run_tests:
     needs: check_gradlew
     runs-on: ubuntu-latest
     strategy:
