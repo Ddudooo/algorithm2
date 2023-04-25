@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: dirs
-        run: echo "::set-output name=dirs::$(find ./ -name javaSolution -type d | jq --raw-input --slurp --compact-output 'split("\n")[:-1]')"
+        run: echo "::set-output name=dirs::$(find ./ -name */javaSolution/* -type d | jq --raw-input --slurp --compact-output 'split("\n")[:-1]')"
 
   run_tests:
     needs: collect_dirs
