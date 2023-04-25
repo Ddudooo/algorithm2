@@ -18,6 +18,12 @@ jobs:
       matrix:
         dir: ${{ fromJson(needs.collect_dirs.outputs.dirs) }}
     steps:
+      - name: Check for gradlew
+        run: |
+          if [ ! -f ${{ matrix.dir }}/gradlew ]; then
+            echo "No gradlew found in ${{ matrix.dir }}"
+            exit 1
+          fi
       - uses: actions/checkout@v3
       - name: JDK 설치
         uses: actions/setup-java@v3
